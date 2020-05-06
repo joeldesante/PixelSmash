@@ -1,0 +1,13 @@
+{
+  "className": "ImageLabel",
+  "properties": {
+    "Size": {
+      "Type": "UDim2",
+      "Value": [0, 32, 0, 32]
+    },
+    "Position": {
+      "Type": "UDim2",
+      "Value": [1, -20, 1, -20]
+    }
+  }
+}
