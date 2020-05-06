@@ -3,11 +3,11 @@
   "properties": {
     "Size": {
       "Type": "UDim2",
-      "Value": [0,125,0,150]
+      "Value": [0,125,0,200]
     },
     "Position": {
       "Type": "UDim2",
-      "Value": [1,0,1,0]
+      "Value": [1, -40, 1, -10]
     },
     "AnchorPoint": {
       "Type": "Vector2",

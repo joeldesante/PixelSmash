@@ -29,4 +29,5 @@ local function onSelectedPowerupUpdate(value)
   end
 end
 
+wait() -- FIXME Fix all of this shit. The whole script is crap. Redo
 Players.LocalPlayer:WaitForChild("DataFolder").TempData.PowerupData.SelectedPowerup.Changed:Connect(onSelectedPowerupUpdate);

@@ -1,0 +1,21 @@
+{
+  "className": "TextLabel",
+  "properties": {
+    "Size": {
+      "Type": "UDim2",
+      "Value": [1,-10,0,40]
+    },
+    "Position": {
+      "Type": "UDim2",
+      "Value": [0.5,0,1,-50]
+    },
+    "AnchorPoint": {
+      "Type": "Vector2",
+      "Value": [0.5,1]
+    },
+    "Text": {
+      "Type": "String",
+      "Value": "Purchase Boost for 15R$"
+    }
+  }
+}
