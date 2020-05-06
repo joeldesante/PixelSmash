@@ -18,7 +18,7 @@ local PowerupUpdaterListener = ReplicatedStorage.Listeners.PowerupUpdaterListene
   Fired when the Active Powerup value is changed in order to update the powerup display.
   FIXME: Generally this script needs to be reorganized but this particular function is prone to error.
 ]]
-local ControlHintActivatePowerup = Players.LocalPlayer:WaitForChild("PlayerGui").Gui.GameView.ControlHints.ActivatePowerup;
+local ControlHintActivatePowerup = Players.LocalPlayer:WaitForChild("PlayerGui").Gui.GameView.ControlHints.ActivatePowerUp;
 local function onSelectedPowerupUpdate(value)
 
   if value ~= nil or value ~= "" then
