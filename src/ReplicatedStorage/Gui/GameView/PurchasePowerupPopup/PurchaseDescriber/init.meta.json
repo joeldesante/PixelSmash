@@ -7,7 +7,7 @@
     },
     "Position": {
       "Type": "UDim2",
-      "Value": [0.5,0,1,-50]
+      "Value": [0.5,0,1,-40]
     },
     "AnchorPoint": {
       "Type": "Vector2",

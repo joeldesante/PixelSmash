@@ -1,21 +1,21 @@
 {
-  "className": "ImageLabel",
+  "className": "Frame",
   "properties": {
-    "Size": {
-      "Type": "UDim2",
-      "Value": [1, -10, 0, 90]
-    },
     "Position": {
       "Type": "UDim2",
-      "Value": [0.5, 0, 0, 40]
+      "Value": [0.3, 0, 0, 70]
+    },
+    "Size": {
+      "Type": "UDim2",
+      "Value": [0, 100, 0, 10]
     },
     "AnchorPoint": {
       "Type": "Vector2",
-      "Value": [0.5,0]
+      "Value": [0.5, 0]
     },
     "BackgroundColor3": {
       "Type": "Color3",
-      "Value": [0.5,0,0]
+      "Value": [125, 125, 125]
     }
   }
 }

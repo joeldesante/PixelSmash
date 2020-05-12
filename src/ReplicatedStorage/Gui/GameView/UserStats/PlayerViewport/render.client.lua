@@ -30,6 +30,7 @@ local function initializeViewportFrame()
     Gets the most up to date copy of the player's characterr model
   ]]
   local function getCurrentCharacterModel() 
+
     local Character = Players.LocalPlayer.Character;
     if Character == nil then return end   -- Depart if the the Character has not yet loaded.
     
@@ -46,15 +47,17 @@ local function initializeViewportFrame()
   local function onRenderStepped()
 
     -- Disables the render output in studio (to save resources)
-    if RunService:IsStudio() then 
+    --[[if RunService:IsStudio() then 
       ViewportFrame.BackgroundColor3 = Color3.new(1,0,0);
       ViewportFrame.BackgroundTransparency = 0.95;
       return;
-    end;
+    end;]]
     
     -- Get a pose from the character model
     local Model = getCurrentCharacterModel();
-    if Model == nil then return end   -- Depart if the the Character has not yet loaded.
+    if Model == nil then -- Depart if the the Character has not yet loaded.
+      return;
+    end
 
     -- Flush out the last pose in ViewportFrame
     clearChildrenOfType(ViewportFrame, "Model");
