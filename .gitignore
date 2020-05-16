@@ -1,0 +1,6 @@
+.DS_Store
+*.toml
+*.rbxlx
+*.rbxl
+
+.vscode
