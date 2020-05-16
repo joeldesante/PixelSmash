@@ -47,11 +47,11 @@ local function initializeViewportFrame()
   local function onRenderStepped()
 
     -- Disables the render output in studio (to save resources)
-    --[[if RunService:IsStudio() then 
+    if RunService:IsStudio() then 
       ViewportFrame.BackgroundColor3 = Color3.new(1,0,0);
       ViewportFrame.BackgroundTransparency = 0.95;
       return;
-    end;]]
+    end;
     
     -- Get a pose from the character model
     local Model = getCurrentCharacterModel();

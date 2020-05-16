@@ -1,0 +1,9 @@
+{
+  "className": "NumberValue",
+  "properties": {
+    "Value": {
+      "Type": "Float32",
+      "Value": 1
+    }
+  }
+}
