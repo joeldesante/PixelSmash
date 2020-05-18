@@ -9,8 +9,8 @@ function Action.context(actionName, inputState, inputObj)
 end
 
 function Action.fire()
-  print("Activate Powerup.");
-  game.ReplicatedStorage.Events:WaitForChild("ActivatePowerup"):Fire();
+  --print("Activate Powerup.");
+  game.ReplicatedStorage.Emitters:WaitForChild("PowerupEmitter"):InvokeServer();
 end
 
 return Action;

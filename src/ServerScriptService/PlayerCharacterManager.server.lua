@@ -1,4 +1,4 @@
-local Players = game:GetService("Players");
+--[[local Players = game:GetService("Players");
 
 Players.PlayerAdded:Connect(function(player)
 
@@ -25,4 +25,4 @@ Players.PlayerAdded:Connect(function(player)
   
   end)
 
-end)
+end)]]

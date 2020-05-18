@@ -22,9 +22,12 @@ Powerups.GigaBoost.Meta = {
   ["multiplier"] = 2.5
 }
 function Powerups.GigaBoost.Action(player)
-  if RunService:IsClient() then return end    -- Just in case somebody trys to execute this on the client
+  if RunService:IsClient() then 
+    warn("You may NOT activate powerup from the client.");
+    return
+  end    -- Just in case somebody trys to execute this on the client
   
-  print("Applying GigaBoost to " .. player.Name)
+  print("Applying GigaBoost to " .. player.Name);
 
 end
 

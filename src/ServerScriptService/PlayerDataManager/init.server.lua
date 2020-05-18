@@ -28,6 +28,11 @@ local function initializePlayerData(player)
   ]]
   local TempData = DataManip.createDataFolder("TempData", DataFolder);
 
+  local PowerupData = DataManip.createDataFolder("PowerupData", TempData);
+  local SelectedPowerup = Instance.new("StringValue");
+  SelectedPowerup.Name = "SelectedPowerup";
+  SelectedPowerup.Parent = PowerupData;
+
 end
 
 PlayerJoined:Connect(initializePlayerData);
