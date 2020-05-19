@@ -1,0 +1,13 @@
+{
+  "className": "Part",
+  "properties": {
+    "Size": {
+      "Type": "Vector3",
+      "Value": [2, 2, 2]
+    },
+    "Position": {
+      "Type": "Vector3",
+      "Value": [0,0,0]
+    }
+  }
+}

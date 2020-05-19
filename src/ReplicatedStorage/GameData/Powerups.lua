@@ -1,5 +1,5 @@
 local RunService = game:GetService("RunService");
-
+local ReplicatedStorage = game:GetService("ReplicatedStorage");
 --[[
   This table of Powerups holds all the relevant information needed for most systems
   to use. This way I can update information in one place and it updates everywhere.
@@ -21,6 +21,7 @@ Powerups.GigaBoost.IconId = "10889910";
 Powerups.GigaBoost.Meta = {
   ["multiplier"] = 2.5
 }
+Powerups.GigaBoost.Model = ReplicatedStorage.Models.Lootables.Powerups.GigaBoost
 function Powerups.GigaBoost.Action(player)
   if RunService:IsClient() then 
     warn("You may NOT activate powerup from the client.");
