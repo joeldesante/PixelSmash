@@ -18,10 +18,11 @@ local PowerupUpdaterListener = ReplicatedStorage.Listeners.PowerupUpdaterListene
   Fired when the Active Powerup value is changed in order to update the powerup display.
   FIXME: Generally this script needs to be reorganized but this particular function is prone to error.
 ]]
-local ControlHintActivatePowerup = Players.LocalPlayer:WaitForChild("PlayerGui").Gui.GameView.ControlHints.ActivatePowerUp;
+local ControlHintActivatePowerup = Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("Gui").GameView.ControlHints.ActivatePowerUp;
 local function onSelectedPowerupUpdate(value)
 
-  if value ~= nil or value ~= "" then
+  if value ~= nil and value ~= "" then
+    print(Powerups[value].IconId)
     PowerupViewFrame.Image = string.format("rbxassetid://%i", Powerups[value].IconId);
     ControlHintActivatePowerup.isActive.Value = true;
   else

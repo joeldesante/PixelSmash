@@ -2,6 +2,9 @@ local Players = game:GetService("Players");
 local Camera = {};
 local camera_mt = { __index = Camera };
 
+--[[
+  Base function for creating a new Camera object
+]]
 function Camera.new(player)
   self = Camera;
   
@@ -9,14 +12,16 @@ function Camera.new(player)
   Camera.currentCamera = workspace.CurrentCamera;
   Camera.distance = 100;
   Camera.height = 50;
-  Camera.rotationSpeed = 10;      -- Degrees per second
+  Camera.fieldOfView = 20;
+  Camera.rotationSpeed = Vector3.new(0, 5, 0);      -- Degrees per second
+  Camera.rotationalOffset = Vector3.new(0,0,0);   -- How much added spin is on the camera
   Camera.isRotationMode = false;
   Camera.maxRotationOffset = 8;   -- In degrees
   Camera.maxPartTransparency = 0.8;
-  Camera.target = nil;
+  Camera.target = workspace.Baseplate;
 
-  -- Private variables
-  Camera.__rotationOffset = 0;
+  -- Init
+  self.currentCamera.FieldOfView = self.fieldOfView;
 
   return setmetatable(self, camera_mt)
 end
@@ -29,16 +34,18 @@ end
 ]]
 function Camera:calculateCameraPosition()
   if not self.target then 
-    print(2)
     return CFrame.new(0,0,0);
   end
-  print(1)
-  print(self.target.Position)
   local ISOMETRIC_OFFSET = self.distance / math.sqrt(2);  
   local TARGET_POSITION = self.target.Position;
   
   local initialCFrame = CFrame.new(TARGET_POSITION);
-  local initialRotatedCFrame = initialCFrame * CFrame.Angles(0, math.rad(self.__rotationOffset), 0);
+  local initialRotatedCFrame = initialCFrame 
+    * CFrame.Angles(
+      math.rad(self.rotationalOffset.x),          -- Convert the degrees on the X
+      math.rad(self.rotationalOffset.y),          -- and the Y
+      math.rad(self.rotationalOffset.z)           -- and the Z
+    );
   local offsetCFrame = initialRotatedCFrame:ToWorldSpace(CFrame.new(ISOMETRIC_OFFSET, self.height, ISOMETRIC_OFFSET));
   local rotatedCFrame = CFrame.new(offsetCFrame.p, TARGET_POSITION);
 
@@ -98,6 +105,34 @@ function Camera:clearViewToPlayer(delta)
 end
 
 --[[
+  Updates the the rotational offset to rotate on "rotationMode"
+]]
+function Camera:updateRotationalOffset(delta)
+
+  -- First, normalize the rotation to 360 degrees
+  self.rotationalOffset = Vector3.new(
+    math.fmod(self.rotationalOffset.x, 360),
+    math.fmod(self.rotationalOffset.y, 360),
+    math.fmod(self.rotationalOffset.z, 360)
+  );
+
+  -- Calculate the value with delta
+  local CALCULATED_ROTATION_SPEED = Vector3.new(
+    self.rotationSpeed.x * delta,
+    self.rotationSpeed.y * delta,
+    self.rotationSpeed.z * delta
+  );
+
+  -- Apply
+  if self.isRotationMode == true then
+    self.rotationalOffset = self.rotationalOffset + CALCULATED_ROTATION_SPEED;
+  else
+    self.rotationalOffset = self.rotationalOffset * delta;
+  end
+
+end
+
+--[[
   Updates the entire camera system.
   This method will calculate the new position of the camera, trigger
   transparency updates, etc...
@@ -106,6 +141,9 @@ end
     delta | Delta time variable. Time in seconds since the last frame (ie. 0.001s)
 ]]
 function Camera:update(delta)
+
+  self:updateRotationalOffset(delta);
+
   local calculateCameraPosition = self:calculateCameraPosition();
   self.currentCamera.CFrame = calculateCameraPosition;
   self:clearViewToPlayer(delta);
