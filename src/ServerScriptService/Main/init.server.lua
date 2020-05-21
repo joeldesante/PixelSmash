@@ -1,9 +1,12 @@
 local RunService = game:GetService("RunService");
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local GameStateManager = require(script.GameStateManager);
 local PlayerManager = require(script.PlayerManager);
 local Timer = require(script.Timer);
 local Building = require(script.BuildingBuilder);
+
+local DataStores = require(ReplicatedStorage.GameData.DataStores);
 
 local SETTINGS = {
   ["GAME_TIME"] = 240,
@@ -15,6 +18,8 @@ local Players = game:GetService("Players");
 -- When a new player joins
 Players.PlayerAdded:Connect(function(player)
   PlayerManager.AddPlayer(player);
+
+  print(unpack(DataStores.getPlayerData(player)));
 
   player.CharacterAdded:Connect(function(character)
     character.Humanoid.JumpPower = 1000

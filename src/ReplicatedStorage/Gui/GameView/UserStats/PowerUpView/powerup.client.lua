@@ -22,6 +22,7 @@ local ControlHintActivatePowerup = Players.LocalPlayer:WaitForChild("PlayerGui")
 local function onSelectedPowerupUpdate(value)
 
   if value ~= nil and value ~= "" then
+    print(Powerups[value].IconId)
     PowerupViewFrame.Image = string.format("rbxassetid://%i", Powerups[value].IconId);
     ControlHintActivatePowerup.isActive.Value = true;
   else

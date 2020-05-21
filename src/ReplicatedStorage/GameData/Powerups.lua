@@ -32,4 +32,28 @@ function Powerups.GigaBoost.Action(player)
 
 end
 
+--[[
+  Speed Boost
+  This powerup gives the player a 2.5x increase in speed
+]]
+Powerups.Speed = {}
+Powerups.Speed.Name = "Speed Boost";    -- Maybe Gigablast?
+Powerups.Speed.Description = "Increase speed by 2.5x for duration of 25 seconds";
+Powerups.Speed.IconId = "1587991485";
+Powerups.Speed.Meta = {
+  ["multiplier"] = 2.5
+}
+Powerups.Speed.Model = ReplicatedStorage.Models.Lootables.Powerups.Speed
+function Powerups.Speed.Action(player)
+  if RunService:IsClient() then 
+    warn("You may NOT activate powerup from the client.");
+    return
+  end    -- Just in case somebody trys to execute this on the client
+  
+  print(string.format("Applying %s to %s", Powerups.Speed.Name, player.Name));
+  local originalSpeed = player.Character.Humanoid.WalkSpeed;
+  player.Character.Humanoid.WalkSpeed = originalSpeed + (originalSpeed * 2.5);
+
+end
+
 return Powerups;

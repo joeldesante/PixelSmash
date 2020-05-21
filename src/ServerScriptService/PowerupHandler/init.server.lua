@@ -25,7 +25,7 @@ end
 PowerupEvent.OnServerInvoke = onPowerupEvent;
 
 
--- FIXME
+-- FIXME Refactor this code
 
 local spawnedPowerup = {}
 
@@ -70,7 +70,7 @@ RunService.Stepped:Connect(function(delta)
   end
 end)
 
-while wait(10) do
-  table.insert(spawnedPowerup, PowerupsSpawner:spawnPowerup(Powerups.GigaBoost, Vector3.new(math.random()*40,10,math.random()*40)))
+while wait(2) do
+  table.insert(spawnedPowerup, PowerupsSpawner:spawnPowerup(Powerups.Speed, Vector3.new(math.random()*500,10,math.random()*500)))
 end
 

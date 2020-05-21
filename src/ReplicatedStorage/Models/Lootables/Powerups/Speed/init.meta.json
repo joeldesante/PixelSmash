@@ -1,0 +1,21 @@
+{
+  "className": "Part",
+  "properties": {
+    "Size": {
+      "Type": "Vector3",
+      "Value": [1,1,1]
+    },
+    "Color3": {
+      "Type": "Color3",
+      "Value": [255,0,255]
+    },
+    "Anchored": {
+      "Type": "Bool",
+      "Value": true
+    },
+    "CanCollide": {
+      "Type": "Bool",
+      "Value": false
+    }
+  }
+}
