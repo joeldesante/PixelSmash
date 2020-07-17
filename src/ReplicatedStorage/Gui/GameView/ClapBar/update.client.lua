@@ -1,1 +1,0 @@
--- TODO: Implemenent the Clap Bar

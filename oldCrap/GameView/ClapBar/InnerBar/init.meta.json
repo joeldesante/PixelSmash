@@ -1,0 +1,13 @@
+{
+  "className": "Frame",
+  "properties": {
+    "Size": {
+      "Type": "UDim2",
+      "Value": [1, 0, 1, 0]
+    },
+    "BackgroundColor3": {
+      "Type": "Color3",
+      "Value": [245, 245, 255]
+    }
+  }
+}

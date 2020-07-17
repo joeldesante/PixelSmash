@@ -1,0 +1,21 @@
+{
+  "className": "ImageLabel",
+  "properties": {
+    "Size": {
+      "Type": "UDim2",
+      "Value": [1, -10, 0, 90]
+    },
+    "Position": {
+      "Type": "UDim2",
+      "Value": [0.5, 0, 0, 40]
+    },
+    "AnchorPoint": {
+      "Type": "Vector2",
+      "Value": [0.5,0]
+    },
+    "BackgroundColor3": {
+      "Type": "Color3",
+      "Value": [0.5,0,0]
+    }
+  }
+}

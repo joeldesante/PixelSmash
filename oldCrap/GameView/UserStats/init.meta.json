@@ -1,0 +1,13 @@
+{
+  "className": "Frame",
+  "properties": {
+    "Size": {
+      "Type": "UDim2",
+      "Value": [0,100,0,100]
+    },
+    "Position": {
+      "Type": "UDim2",
+      "Value": [0, 20, 0, 40]
+    }
+  }
+}

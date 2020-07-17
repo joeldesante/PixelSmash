@@ -10,7 +10,6 @@
     },
     "Lighting": {
       "$className": "Lighting",
-      "$path": "src/Lighting",
       "$properties": {
         "Ambient": [
           0.0,
@@ -58,28 +57,6 @@
       "$className": "Workspace",
       "$properties": {
         "FilteringEnabled": true
-      },
-      "Baseplate": {
-        "$className": "Part",
-        "$properties": {
-          "Size": [
-            512.0,
-            20.0,
-            512.0
-          ],
-          "Anchored": true,
-          "Color": [
-            0.38823,
-            0.37254,
-            0.38823
-          ],
-          "Locked": true,
-          "Position": [
-            0.0,
-            -10.0,
-            0.0
-          ]
-        }
       }
     }
   }

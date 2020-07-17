@@ -1,0 +1,41 @@
+{
+  "className": "TextButton",
+  "properties": {
+    "Size": {
+      "Type": "UDim2",
+      "Value": [0, 200, 1, 0]
+    },
+    "Position": {
+      "Type": "UDim2",
+      "Value": [0, 10, 0, 0]
+    },
+    "AnchorPoint": {
+      "Type": "Vector2",
+      "Value": [0, 0]
+    },
+    "BackgroundTransparency": {
+      "Type": "Float32",
+      "Value": 1
+    },
+    "TextSize": {
+      "Type": "Int32",
+      "Value": 14
+    },
+    "Text": {
+      "Type": "String",
+      "Value": "[X] Context Action"
+    },
+    "Font": {
+      "Type": "Content",
+      "Value": "GothamBold"
+    },
+    "TextColor3": {
+      "Type": "Color3",
+      "Value": [255,255,255]
+    },
+    "Visible": {
+      "Type": "Bool",
+      "Value": false
+    }
+  }
+}

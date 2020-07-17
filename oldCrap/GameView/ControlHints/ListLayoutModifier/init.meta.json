@@ -1,0 +1,9 @@
+{
+  "className": "UIListLayout",
+  "properties": {
+    "FillDirection": {
+      "Type": "Content",
+      "Value": "Horizontal"
+    }
+  }
+}
