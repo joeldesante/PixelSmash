@@ -6,7 +6,13 @@ if not PlayerData then
     return
 end
 
-local isStunned = PlayerData:FindFirstChild("isStunned")
+local CharacterData = PlayerData:FindFirstChild("CharacterData")
+if not CharacterData then
+    error("CharacterData failed to load in time. Aborting!")
+    return
+end
+
+local isStunned = CharacterData:FindFirstChild("isStunned")
 
 isStunned.Changed:Connect(function(value)
 

@@ -35,12 +35,12 @@ local function inputEnded(input, isProcess)
     
     if input.UserInputType == Enum.UserInputType.MouseButton1 then
         -- Primary Action
-        local response = PrimaryActionEndedRemoteFunction:InvokeServer()
+        --local response = PrimaryActionEndedRemoteFunction:InvokeServer()
     end
 
     if input.UserInputType == Enum.UserInputType.MouseButton2 then
         -- Secondary Action
-        local response = SecondaryActionEndedRemoteFunction:InvokeServer()
+        --local response = SecondaryActionEndedRemoteFunction:InvokeServer()
     end
 
 end

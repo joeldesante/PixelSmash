@@ -81,7 +81,7 @@ function Camera:clearViewToPlayer(delta)
   ]]
   local function adjustTrasparency(parts)
 
-    for _,part in pairs(parts) do
+    for _,part in ipairs(parts) do
       do
         local LoadedMap = game.Workspace:FindFirstChild("LoadedMap")
         if not LoadedMap then

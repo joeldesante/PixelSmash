@@ -34,7 +34,7 @@ script.Parent.MapLoaded.Event:Connect(function(mapData, map)
 
                     if ModelEffect:IsA("MeshPart") then
                         -- If it is a MeshPart then strip the texture
-                        ModelEffect.Texture = ""
+                        ModelEffect.TextureID = ""
                     end
                     
                     game:GetService("TweenService"):Create(ModelEffect, TweenInfo.new(1), {

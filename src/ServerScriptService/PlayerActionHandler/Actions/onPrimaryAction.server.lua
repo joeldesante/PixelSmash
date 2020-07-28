@@ -40,6 +40,27 @@ local function findWaypointsInRadius(locationCFrame, radius)
     return WaypointsInRadius
 end
 
+local function findPlayersInRadius(locationCFrame, radius)
+
+    local output = {}
+    
+    local Players = game.Players:GetPlayers()
+    for _,Player in ipairs(Players) do
+        if Player.Character then
+            local HumanoidRootPart = Player.Character:FindFirstChild("HumanoidRootPart")
+            if HumanoidRootPart then
+                if (locationCFrame.p - HumanoidRootPart.CFrame.p).magnitude > radius then
+                    table.insert(output, Player)
+                end
+            end
+        end
+    end
+
+    print(1, output)
+
+    return output
+end
+
 FixerPrimaryAction.OnInvoke = function(player)
 
     local DataModel = player:FindFirstChild("PlayerData")
@@ -61,10 +82,9 @@ FixerPrimaryAction.OnInvoke = function(player)
     local Character = player.Character
     if not Character then return end
 
-    -- Play the animation
-
     -- Find waypoints in radius
     local WaypointsInRadius = findWaypointsInRadius(Character.HumanoidRootPart.CFrame, GameSettings.FixerDefaultRadius.Value)
+    local PlayersInRadius = findPlayersInRadius(Character.HumanoidRootPart.CFrame, GameSettings.FixerDefaultRadius.Value)
 
     -- Apply appropiate effects
     for _,Waypoint in ipairs(WaypointsInRadius) do
@@ -73,6 +93,22 @@ FixerPrimaryAction.OnInvoke = function(player)
             local Health = Configuration:FindFirstChild("Health")
             if Health then
                 Health.Value = Health.Value + GameSettings.FixerFixAmount.Value
+            end
+        end
+    end
+
+    print(PlayersInRadius)
+    for _,Player in ipairs(PlayersInRadius) do
+        local PlayerTeam = Player.Team
+        if PlayerTeam == game.Teams.Smasher then
+            do
+                -- Add value to the smasher stun bar
+                local PlayerData = Player:FindFirstChild("PlayerData")
+                if not PlayerData then break end
+                local CharacterData = PlayerData:FindFirstChild("CharacterData")
+                if not CharacterData then break end
+                local StunHealth = CharacterData:FindFirstChild("StunHealth")
+                StunHealth.Value = math.clamp(StunHealth.Value + 0.1, 0, 1)
             end
         end
     end

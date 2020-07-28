@@ -24,7 +24,7 @@ Maps.Pixeltopia = {
 Maps.Candyland = {
 	Id = 3,
 	Name = "Candy Land",
-	Root = game.ServerStorage
+	Root = game.ServerStorage.Maps.Candyland
 }
 
 return Maps
